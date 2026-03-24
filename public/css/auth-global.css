@@ -1,0 +1,566 @@
+/* =========================================
+   AUTH-GLOBAL.CSS — Unified Auth & Onboarding Design System
+   ========================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+    --auth-primary: #00C2E0;
+    --auth-primary-soft: #64E0E7;
+    --auth-primary-bg: #F0F7F8;
+    --auth-primary-border: #BCE7EF;
+    --auth-bg: #F8F9FA;
+    --auth-card-bg: #ffffff;
+    --auth-card-border: #f0f0f0;
+    --auth-text: #333333;
+    --auth-text-muted: #888888;
+    --auth-text-light: #A0A0A0;
+    --auth-text-input: #555555;
+    --auth-error: #e3342f;
+    --auth-success: #38c172;
+    --auth-radius-sm: 8px;
+    --auth-radius-md: 12px;
+    --auth-radius-lg: 40px;
+    --auth-shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --auth-shadow-btn: 0 4px 12px rgba(100, 224, 231, 0.35);
+    --auth-font: 'Open Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --auth-transition: 0.25s ease;
+}
+
+/* ---------- Reset (scoped to auth pages) ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--auth-font);
+    background-color: var(--auth-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--auth-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Main Layout ---------- */
+.main-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* ---------- Brand Section ---------- */
+.brand-section {
+    max-width: 450px;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--auth-primary);
+}
+
+.slogan {
+    color: var(--auth-text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* ---------- Auth Card ---------- */
+.login-card {
+    background: var(--auth-card-bg);
+    padding: 2.5rem;
+    border-radius: var(--auth-radius-lg);
+    box-shadow: var(--auth-shadow-card);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--auth-card-border);
+}
+
+/* ---------- Shared Input styles ---------- */
+.input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input-group input,
+.input-group select,
+.full-select,
+.full-input,
+.select-wrapper select {
+    width: 100%;
+    padding: 13px 16px;
+    background-color: var(--auth-primary-bg);
+    border: 1.5px solid var(--auth-primary-border);
+    border-radius: var(--auth-radius-md);
+    outline: none;
+    font-size: 0.95rem;
+    font-family: var(--auth-font);
+    color: var(--auth-text-input);
+    transition: border-color var(--auth-transition), box-shadow var(--auth-transition);
+}
+
+.input-group input::placeholder {
+    color: var(--auth-text-light);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.full-select:focus,
+.full-input:focus,
+.select-wrapper select:focus {
+    border-color: var(--auth-primary);
+    box-shadow: 0 0 0 3px rgba(0, 194, 224, 0.1);
+}
+
+/* ---------- Custom Select Arrow ---------- */
+select,
+.full-select,
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px;
+    padding-right: 40px !important;
+}
+
+/* ---------- Icons in Input Group ---------- */
+.input-group i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--auth-text-light);
+    font-size: 0.95rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.input-group input {
+    padding-right: 42px; /* Ensure space for icons */
+}
+
+/* ---------- Input Group Container ---------- */
+.input-group-container {
+    margin-bottom: 1.2rem;
+}
+
+.input-group-container .input-group {
+    margin-bottom: 0;
+}
+
+/* ---------- Helper / Forgot Password ---------- */
+.forgot-pass {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    padding-left: 4px;
+}
+
+.forgot-pass a {
+    font-size: 0.8rem;
+    color: var(--auth-text-light);
+    text-decoration: none;
+    transition: color var(--auth-transition);
+}
+
+.forgot-pass a:hover {
+    color: var(--auth-primary);
+}
+
+/* ---------- Remember Me ---------- */
+.remember-me {
+    font-size: 0.8rem;
+    color: var(--auth-text-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    accent-color: var(--auth-primary-soft);
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid var(--auth-primary-border);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* ---------- Labels ---------- */
+.field-label-top,
+.field-label {
+    font-size: 0.85rem;
+    color: var(--auth-text-light);
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 600;
+}
+
+/* ---------- Date Row (Onboarding) ---------- */
+.date-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.select-wrapper {
+    flex: 1;
+    text-align: center;
+}
+
+.select-wrapper label {
+    font-size: 0.75rem;
+    color: var(--auth-text-light);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* ---------- Gender Section (Onboarding) ---------- */
+.gender-section {
+    margin-bottom: 1.5rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 2rem;
+    margin-top: 8px;
+}
+
+.custom-radio {
+    font-size: 0.9rem;
+    color: var(--auth-text-input);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: color var(--auth-transition);
+}
+
+.custom-radio:hover {
+    color: var(--auth-primary);
+}
+
+.custom-radio input[type="radio"] {
+    accent-color: var(--auth-primary-soft);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* ---------- Primary Button ---------- */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--auth-primary-soft), var(--auth-primary));
+    border: none;
+    border-radius: var(--auth-radius-md);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--auth-shadow-btn);
+    font-size: 1.05rem;
+    font-family: var(--auth-font);
+    transition: transform var(--auth-transition), box-shadow var(--auth-transition), opacity var(--auth-transition);
+    margin-top: 0.75rem;
+    letter-spacing: 0.2px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(100, 224, 231, 0.45);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--auth-shadow-btn);
+}
+
+/* ---------- Separator ---------- */
+.separator {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.separator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #e8e8e8;
+    z-index: 1;
+}
+
+.separator span {
+    background: var(--auth-card-bg);
+    padding: 0 12px;
+    position: relative;
+    z-index: 2;
+    font-size: 0.75rem;
+    color: #ccc;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Social Buttons ---------- */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.btn-social {
+    width: 100%;
+    padding: 11px 16px;
+    border: 1.5px solid var(--auth-primary-border);
+    background: var(--auth-card-bg);
+    border-radius: var(--auth-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #555;
+    cursor: pointer;
+    font-family: var(--auth-font);
+    transition: border-color var(--auth-transition), background-color var(--auth-transition), transform var(--auth-transition);
+}
+
+.btn-social:hover {
+    border-color: var(--auth-primary);
+    background-color: var(--auth-primary-bg);
+    transform: translateY(-1px);
+}
+
+.btn-social img {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-social i {
+    font-size: 1.1rem;
+}
+
+/* ---------- Footer Link ---------- */
+.footer-link {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--auth-text-light);
+    margin-top: 1.2rem;
+}
+
+.footer-link a {
+    color: var(--auth-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--auth-transition);
+}
+
+.footer-link a:hover {
+    color: var(--auth-primary-soft);
+    text-decoration: underline;
+}
+
+/* ---------- Helper/Status Text ---------- */
+.helper-text {
+    text-align: left;
+    margin-bottom: 1rem;
+    padding-left: 4px;
+}
+
+.helper-text p,
+.helper-text span {
+    font-size: 0.8rem;
+    color: var(--auth-text-light);
+    line-height: 1.5;
+}
+
+/* ---------- Session Status ---------- */
+.auth-status {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    padding: 10px 14px;
+    border-radius: var(--auth-radius-sm);
+    line-height: 1.4;
+}
+
+.auth-status--success {
+    color: var(--auth-success);
+    background-color: rgba(56, 193, 114, 0.08);
+    border: 1px solid rgba(56, 193, 114, 0.2);
+}
+
+/* ---------- Error Messages ---------- */
+.auth-error-list {
+    color: var(--auth-error);
+    font-size: 0.8rem;
+    margin-top: -4px;
+    margin-bottom: 0.75rem;
+    list-style: none;
+    padding-left: 4px;
+}
+
+.auth-error-inline {
+    color: var(--auth-error);
+    font-size: 0.8rem;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+/* ---------- Verify Email Page ---------- */
+.verify-email-text {
+    font-size: 0.9rem;
+    color: var(--auth-text-input);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.verify-email-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    color: var(--auth-text-light);
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: var(--auth-font);
+    transition: color var(--auth-transition);
+}
+
+.btn-link:hover {
+    color: var(--auth-primary);
+}
+
+/* ---------- Site Footer ---------- */
+.site-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #eee;
+    background: white;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--auth-text-light);
+}
+
+.footer-content .links a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: var(--auth-text-light);
+    transition: color var(--auth-transition);
+}
+
+.footer-content .links a:hover {
+    color: var(--auth-primary);
+}
+
+.social-icons a,
+.social-icons i {
+    margin-left: 12px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    color: var(--auth-text-light);
+    transition: color var(--auth-transition);
+    text-decoration: none;
+}
+
+.social-icons a:hover,
+.social-icons i:hover {
+    color: var(--auth-primary);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .brand-section {
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .login-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+        border-radius: 24px;
+    }
+
+    .logo {
+        font-size: 2.8rem;
+    }
+
+    .slogan {
+        font-size: 1rem;
+    }
+
+    .date-row {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .radio-group {
+        gap: 1.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .footer-content .links a {
+        display: inline-block;
+        margin: 4px 8px;
+    }
+
+    .social-icons i {
+        margin: 0 8px;
+    }
+}

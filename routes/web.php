@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Tracking\VitalSignController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Onboarding Routes
     Route::get('/onboarding', [OnboardingController::class, 'index'])->name('onboarding.index');
     Route::post('/onboarding', [OnboardingController::class, 'store'])->name('onboarding.store');
+
+    // Tracking Routes
+    Route::prefix('tracking')->name('tracking.')->group(function () {
+        Route::get('/vitals', [VitalSignController::class, 'create'])->name('vital.create');
+        Route::post('/vitals', [VitalSignController::class, 'store'])->name('vital.store');
+    });
 });
 
 require __DIR__.'/auth.php';

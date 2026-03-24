@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Onboarding\PersonalDataRequest;
 use App\Models\PatientProfile;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,19 +13,15 @@ class OnboardingController extends Controller
         return view('onboarding.personal-data');
     }
 
-    public function store(Request $request)
+    public function store(PersonalDataRequest $request)
     {
-        $validated = $request->validate([
-            'birth_day' => 'required',
-            'birth_month' => 'required',
-            'birth_year' => 'required',
-            'diabetes_type' => 'required|string',
-            'weight' => 'required|numeric',
-            'height' => 'required|numeric',
-            'gender' => 'required|string',
-        ]);
+        $validated = $request->validated();
 
-        $birthDate = $validated['birth_year'] . '-' . $this->getMonthNumber($validated['birth_month']) . '-' . $validated['birth_day'];
+        $birthDate = sprintf('%04d-%02d-%02d', 
+            $validated['birth_year'], 
+            $this->getMonthNumber($validated['birth_month']), 
+            $validated['birth_day']
+        );
 
         PatientProfile::updateOrCreate(
             ['user_id' => Auth::id()],
@@ -38,7 +34,7 @@ class OnboardingController extends Controller
             ]
         );
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('status', __('Datos registrados correctamente.'));
     }
 
     private function getMonthNumber($monthName)

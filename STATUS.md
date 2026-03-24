@@ -31,9 +31,18 @@ Se han creado y ejecutado las siguientes migraciones con una estructura profesio
    - Vista: `resources/views/dashboard.blade.php` (antes `dashboardc.html`).
    - Funcionalidad: Muestra bienvenida personalizada y estructura base de métricas.
 
-## 🛠️ 4. Correcciones Técnicas Importantes
+   - Tareas Adicionales: Los formularios comparten ahora la misma estructura CSS (`login.css`) base para evitar inconsistencias de diseño.
+   - Seguridad: Modelos actualizados (`User` y `PatientProfile`) con validación estricta para asegurar que nadie entre al Dashboard sin antes completar su Onboarding.
+
+## 🛠️ 4. Correcciones Técnicas e Inconsistencias
 - **Conexión MySQL:** Se corrigió el archivo `.env` para usar MySQL (`app_laravel`) en lugar de SQLite.
 - **Sincronización de Tablas:** Se ejecutó `migrate:fresh` para asegurar que las 15 tablas profesionales estén presentes en el servidor MySQL.
+- **Estandarización UI:** Implementación de componentes Blade atómicos (`x-text-input`, `x-primary-button`, etc.) para corregir inconsistencias de diseño originales y unificar la experiencia de usuario.
+
+## 💎 5. Estándares de Calidad (Directrices Senior)
+- **Refactorización Continua:** No se permite el copiado directo de HTML inconsistente; cada migración debe pasar por una fase de limpieza y componentización.
+- **Validación Robusta:** Uso obligatorio de Form Requests para cada módulo.
+- **Consistencia Visual:** Unificación de tipografías, márgenes y comportamientos mediante componentes reutilizables.
 
 ## 📝 5. Próximos Pasos (Pendientes)
 1. **Módulo de Signos Vitales**: Convertir `signos.html` a Blade y conectar con `VitalSignController`.
