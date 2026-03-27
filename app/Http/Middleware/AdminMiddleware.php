@@ -6,12 +6,20 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Clase AdminMiddleware
+ * 
+ * Middleware que restringe el acceso a rutas solo para usuarios administradores.
+ * Si el usuario no está autenticado o no es administrador, redirige al dashboard.
+ */
 class AdminMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Maneja una solicitud entrante.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function handle(Request $request, Closure $next): Response
     {

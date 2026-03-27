@@ -9,10 +9,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
+/**
+ * Clase ConfirmablePasswordController
+ * 
+ * Gestiona la vista y validación de confirmación de contraseña, un paso 
+ * de seguridad requerido antes de acceder a rutas sensibles como el dashboard.
+ */
 class ConfirmablePasswordController extends Controller
 {
     /**
-     * Show the confirm password view.
+     * Muestra la vista de confirmación de contraseña.
+     * 
+     * Esta vista se presenta al usuario cuando su sesión ha expirado o 
+     * cuando intenta acceder a rutas protegidas que requieren reautenticación.
+     *
+     * @return \Illuminate\View\View
      */
     public function show(): View
     {

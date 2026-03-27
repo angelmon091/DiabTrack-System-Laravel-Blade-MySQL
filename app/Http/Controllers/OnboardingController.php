@@ -6,8 +6,19 @@ use App\Http\Requests\Onboarding\PersonalDataRequest;
 use App\Models\PatientProfile;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Clase OnboardingController
+ * 
+ * Gestiona el proceso de onboarding para nuevos usuarios.
+ * Recopila información personal y médica básica para configurar el perfil del paciente.
+ */
 class OnboardingController extends Controller
 {
+    /**
+     * Muestra el formulario de datos personales.
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
         return view('onboarding.personal-data');

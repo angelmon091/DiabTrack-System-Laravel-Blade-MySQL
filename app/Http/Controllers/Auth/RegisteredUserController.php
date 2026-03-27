@@ -13,10 +13,18 @@ use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
+/**
+ * Clase RegisteredUserController
+ * 
+ * Gestiona el registro de nuevos usuarios.
+ * Maneja la vista de formulario y la lógica de creación de cuentas.
+ */
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Muestra la vista de registro de nuevos usuarios.
+     * 
+     * @return \Illuminate\View\View
      */
     public function create(): View
     {
@@ -24,9 +32,14 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Handle an incoming registration request.
+     * Procesa la solicitud de registro de un nuevo usuario.
      *
-     * @throws ValidationException
+     * Valida los datos recibidos (nombre, correo, contraseña) y crea una nueva cuenta.
+     * Si es exitoso, inicia sesión en la aplicación y redirige al usuario al onboarding.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {

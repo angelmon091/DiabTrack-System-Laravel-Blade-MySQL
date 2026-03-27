@@ -9,10 +9,19 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/**
+ * Clase UserController
+ * 
+ * Controlador para la gestión de usuarios.
+ * Permite crear, editar, eliminar y listar usuarios.
+ */
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra un listado de los usuarios.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\View
      */
     public function index(Request $request)
     {
@@ -30,7 +39,9 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo usuario.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -39,7 +50,10 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un nuevo usuario en el almacenamiento.
+     *
+     * @param \App\Http\Requests\Admin\AdminUserRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(AdminUserRequest $request)
     {
@@ -60,7 +74,10 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar un usuario existente.
+     *
+     * @param \App\Models\User $user
+     * @return \Illuminate\Contracts\View\View
      */
     public function edit(User $user)
     {
@@ -71,7 +88,11 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza un usuario existente en el almacenamiento.
+     *
+     * @param \App\Http\Requests\Admin\AdminUserRequest $request
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(AdminUserRequest $request, User $user)
     {
@@ -99,7 +120,10 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un usuario del almacenamiento.
+     *
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(User $user)
     {

@@ -6,10 +6,18 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\Role;
 
+/**
+ * Clase AdminRoleRequest
+ * 
+ * Reglas de validación para la creación y actualización de roles.
+ * Asegura que los datos del rol sean válidos antes de ser procesados.
+ */
 class AdminRoleRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -17,7 +25,7 @@ class AdminRoleRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Obtiene las reglas de validación que se aplican a la solicitud.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */

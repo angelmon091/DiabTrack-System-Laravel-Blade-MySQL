@@ -14,10 +14,22 @@ use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
+/**
+ * Clase NewPasswordController
+ * 
+ * Gestiona el restablecimiento de contraseña de un usuario.
+ * Maneja la vista de formulario y la lógica de guardado de la nueva contraseña.
+ */
 class NewPasswordController extends Controller
 {
     /**
-     * Display the password reset view.
+     * Muestra la vista de restablecimiento de contraseña.
+     * 
+     * Se accede a esta vista cuando el usuario ha solicitado un restablecimiento
+     * y se le proporciona un token único.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\View\View
      */
     public function create(Request $request): View
     {
@@ -25,9 +37,15 @@ class NewPasswordController extends Controller
     }
 
     /**
-     * Handle an incoming new password request.
+     * Procesa la solicitud de nuevo restablecimiento de contraseña.
+     * 
+     * Valida los datos recibidos (token, email, nueva contraseña) e intenta
+     * restablecer la contraseña del usuario. Si es exitoso, redirige al login;
+     * de lo contrario, devuelve los errores.
      *
-     * @throws ValidationException
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -37,9 +55,9 @@ class NewPasswordController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // Here we will attempt to reset the user's password. If it is successful we
-        // will update the password on an actual user model and persist it to the
-        // database. Otherwise we will parse the error and return the response.
+        // Aquí intentaremos restablecer la contraseña del usuario. Si tiene éxito, actualizaremos
+        // la contraseña en un modelo de usuario real y la persistiremos en la base de datos.
+        // De lo contrario, analizaremos el error y devolveremos la respuesta.
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (User $user) use ($request) {
@@ -52,9 +70,9 @@ class NewPasswordController extends Controller
             }
         );
 
-        // If the password was successfully reset, we will redirect the user back to
-        // the application's home authenticated view. If there is an error we can
-        // redirect them back to where they came from with their error message.
+        // Si la contraseña se restableció correctamente, redirigiremos al usuario de regreso a
+        // la vista autenticada de inicio de la aplicación. Si hay un error, podemos
+        // redirigirlos de regreso de donde vinieron con su mensaje de error.
         return $status == Password::PASSWORD_RESET
                     ? redirect()->route('login')->with('status', __($status))
                     : back()->withInput($request->only('email'))

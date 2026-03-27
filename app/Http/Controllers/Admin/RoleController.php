@@ -7,10 +7,18 @@ use App\Http\Requests\Admin\AdminRoleRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
+/**
+ * Clase RoleController
+ * 
+ * Gestiona las operaciones CRUD para los roles del sistema.
+ * Permite crear, editar, listar y eliminar roles de usuario.
+ */
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra un listado de los roles existentes.
+     * 
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -19,7 +27,9 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo rol.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -27,7 +37,10 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un nuevo rol en la base de datos.
+     *
+     * @param \App\Http\Requests\Admin\AdminRoleRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(AdminRoleRequest $request)
     {
@@ -37,7 +50,10 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar un rol existente.
+     *
+     * @param \App\Models\Role $role
+     * @return \Illuminate\Contracts\View\View
      */
     public function edit(Role $role)
     {
@@ -45,7 +61,11 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza un rol existente en la base de datos.
+     *
+     * @param \App\Http\Requests\Admin\AdminRoleRequest $request
+     * @param \App\Models\Role $role
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(AdminRoleRequest $request, Role $role)
     {
@@ -55,7 +75,10 @@ class RoleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un rol de la base de datos.
+     *
+     * @param \App\Models\Role $role
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Role $role)
     {

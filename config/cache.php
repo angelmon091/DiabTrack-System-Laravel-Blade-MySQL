@@ -6,12 +6,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | almacén de caché predeterminado
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
-    | framework. This connection is utilized if another isn't explicitly
-    | specified when running a cache operation inside the application.
+    | Esta opción controla el almacén de caché predeterminado que será utilizado por el
+    | marco de trabajo. Esta conexión se utiliza si no se especifica explícitamente otra
+    | al ejecutar una operación de caché dentro de la aplicación.
     |
     */
 
@@ -19,14 +19,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Stores
+    | Almacenes de caché
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the cache "stores" for your application as
-    | well as their drivers. You may even define multiple stores for the
-    | same cache driver to group types of items stored in your caches.
+    | Aquí puedes definir todos los "almacenes" de caché para tu aplicación, así como sus controladores. Puedes incluso definir múltiples almacenes para el mismo controlador de caché para agrupar tipos de elementos almacenados en tus cachés.
     |
-    | Supported drivers: "array", "database", "file", "memcached",
+    | Controladores soportados: "array", "database", "file", "memcached",
     |                    "redis", "dynamodb", "octane",
     |                    "failover", "null"
     |
@@ -103,12 +101,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key Prefix
+    | Prefijo de clave de caché
     |--------------------------------------------------------------------------
     |
-    | When utilizing the APC, database, memcached, Redis, and DynamoDB cache
-    | stores, there might be other applications using the same cache. For
-    | that reason, you may prefix every cache key to avoid collisions.
+    | Al utilizar los almacenes de caché APC, database, memcached, Redis y DynamoDB,
+    | puede haber otras aplicaciones utilizando la misma caché. Por
+    | esa razón, puedes prefijar cada clave de caché para evitar colisiones.
     |
     */
 
@@ -116,12 +114,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Serializable Classes
+    | Clases serializables
     |--------------------------------------------------------------------------
     |
-    | This value determines the classes that can be unserialized from cache
-    | storage. By default, no PHP classes will be unserialized from your
-    | cache to prevent gadget chain attacks if your APP_KEY is leaked.
+    | Este valor determina las clases que pueden ser deserializadas desde el
+    | almacenamiento en caché. Por defecto, ninguna clase PHP será deserializada desde tu
+    | caché para prevenir ataques de cadena de gadgets si tu APP_KEY es filtrada.
     |
     */
 

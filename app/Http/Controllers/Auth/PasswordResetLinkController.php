@@ -9,10 +9,21 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
+/**
+ * Clase PasswordResetLinkController
+ * 
+ * Gestiona la solicitud de restablecimiento de contraseña.
+ * Maneja la vista de formulario y el envío del enlace de restablecimiento.
+ */
 class PasswordResetLinkController extends Controller
 {
     /**
-     * Display the password reset link request view.
+     * Muestra la vista de solicitud de restablecimiento de contraseña.
+     * 
+     * Se accede a esta vista cuando el usuario ha olvidado su contraseña y 
+     * necesita solicitar un enlace para restablecerla.
+     *
+     * @return \Illuminate\View\View
      */
     public function create(): View
     {
@@ -20,9 +31,15 @@ class PasswordResetLinkController extends Controller
     }
 
     /**
-     * Handle an incoming password reset link request.
+     * Procesa la solicitud de enlace de restablecimiento de contraseña.
+     * 
+     * Valida el correo electrónico del usuario y envía un enlace para restablecer
+     * la contraseña. Si es exitoso, muestra un mensaje de confirmación;
+     * de lo contrario, devuelve los errores.
      *
-     * @throws ValidationException
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -30,9 +47,9 @@ class PasswordResetLinkController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
+        // Se enviará el enlace de restablecimiento de contraseña a este usuario. Una vez que hayamos intentado
+        // enviar el enlace, examinaremos la respuesta y veremos el mensaje que
+        // necesitamos mostrar al usuario. Finalmente, enviaremos una respuesta adecuada.
         $status = Password::sendResetLink(
             $request->only('email')
         );

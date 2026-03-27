@@ -7,10 +7,22 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 
+/**
+ * Clase VerifyEmailController
+ * 
+ * Gestiona la verificación de la dirección de correo electrónico del usuario.
+ * Se activa cuando el usuario hace clic en el enlace de verificación enviado.
+ */
 class VerifyEmailController extends Controller
 {
     /**
-     * Mark the authenticated user's email address as verified.
+     * Marca el correo electrónico del usuario autenticado como verificado.
+     * 
+     * Si el correo ya está verificado, redirige al dashboard. De lo contrario,
+     * marca el correo como verificado y dispara el evento Verified.
+     *
+     * @param \Illuminate\Foundation\Auth\EmailVerificationRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function __invoke(EmailVerificationRequest $request): RedirectResponse
     {

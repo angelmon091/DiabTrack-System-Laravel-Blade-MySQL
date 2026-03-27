@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Modelo User
+ * 
+ * Representa a los usuarios del sistema, incluyendo pacientes y administradores.
+ * Contiene información básica del usuario y relaciones con sus perfiles, roles y actividades.
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
@@ -26,7 +32,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Obtiene los atributos que deben ser convertidos.
      *
      * @return array<string, string>
      */

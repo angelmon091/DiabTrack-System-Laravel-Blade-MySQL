@@ -22,16 +22,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Guards
+    | Guardias de autenticación
     |--------------------------------------------------------------------------
     |
-    | Next, you may define every authentication guard for your application.
-    | Of course, a great default configuration has been defined for you
-    | which utilizes session storage plus the Eloquent user provider.
+    | A continuación, puedes definir cada guardia de autenticación para tu aplicación.
+    | Por supuesto, se ha definido una gran configuración predeterminada para ti
+    | que utiliza el almacenamiento de sesiones más el proveedor de usuarios Eloquent.
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | Todos los guardias de autenticación tienen un proveedor de usuarios, que define cómo se recuperan realmente los usuarios de tu base de datos u otro sistema de almacenamiento utilizado por la aplicación. Normalmente, se utiliza Eloquent.
     |
     | Supported: "session"
     |
@@ -46,16 +44,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | Proveedores de usuarios
     |--------------------------------------------------------------------------
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | Todos los guardias de autenticación tienen un proveedor de usuarios, que define cómo se recuperan realmente los usuarios de tu base de datos u otro sistema de almacenamiento utilizado por la aplicación. Normalmente, se utiliza Eloquent.
     |
-    | If you have multiple user tables or models you may configure multiple
-    | providers to represent the model / table. These providers may then
-    | be assigned to any extra authentication guards you have defined.
+    | Si tienes múltiples tablas o modelos de usuarios, puedes configurar múltiples proveedores para representar el modelo / tabla. Estos proveedores pueden ser asignados a cualquier guardia de autenticación adicional que hayas definido.
     |
     | Supported: "database", "eloquent"
     |
@@ -75,20 +69,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Resetting Passwords
+    | Restablecimiento de contraseñas
     |--------------------------------------------------------------------------
     |
-    | These configuration options specify the behavior of Laravel's password
-    | reset functionality, including the table utilized for token storage
-    | and the user provider that is invoked to actually retrieve users.
+    | Estas opciones de configuración especifican el comportamiento de la funcionalidad de restablecimiento de contraseña de Laravel, incluyendo la tabla utilizada para el almacenamiento de tokens y el proveedor de usuarios que se invoca para recuperar realmente los usuarios.
     |
-    | The expiry time is the number of minutes that each reset token will be
-    | considered valid. This security feature keeps tokens short-lived so
-    | they have less time to be guessed. You may change this as needed.
+    | El tiempo de expiración es el número de minutos que cada token de restablecimiento será considerado válido. Esta característica de seguridad mantiene los tokens de corta duración para que tengan menos tiempo de ser adivinados. Puedes cambiar esto según sea necesario.
     |
-    | The throttle setting is the number of seconds a user must wait before
-    | generating more password reset tokens. This prevents the user from
-    | quickly generating a very large amount of password reset tokens.
+    | El ajuste de limitación es el número de segundos que un usuario debe esperar antes de generar más tokens de restablecimiento de contraseña. Esto evita que el usuario genere rápidamente una gran cantidad de tokens de restablecimiento de contraseña.
     |
     */
 
@@ -103,12 +91,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Confirmation Timeout
+    | Tiempo de espera de confirmación de contraseña
     |--------------------------------------------------------------------------
     |
-    | Here you may define the number of seconds before a password confirmation
-    | window expires and users are asked to re-enter their password via the
-    | confirmation screen. By default, the timeout lasts for three hours.
+    | Aquí puedes definir el número de segundos antes de que expire la ventana de confirmación de contraseña y se solicite a los usuarios que vuelvan a introducir su contraseña a través de la pantalla de confirmación. Por defecto, el tiempo de espera dura tres horas.
     |
     */
 

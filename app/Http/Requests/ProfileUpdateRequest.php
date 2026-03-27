@@ -7,10 +7,16 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
+/**
+ * Clase ProfileUpdateRequest
+ * 
+ * Reglas de validación para la actualización del perfil del usuario.
+ * Asegura que los datos del perfil sean válidos antes de ser procesados.
+ */
 class ProfileUpdateRequest extends FormRequest
 {
     /**
-     * Get the validation rules that apply to the request.
+     * Obtiene las reglas de validación que se aplican a la solicitud.
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */

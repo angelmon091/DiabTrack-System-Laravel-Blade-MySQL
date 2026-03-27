@@ -4,10 +4,18 @@ namespace App\Http\Requests\Onboarding;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Clase PersonalDataRequest
+ * 
+ * Reglas de validación para los datos personales del usuario.
+ * Asegura que los datos personales sean válidos antes de ser procesados.
+ */
 class PersonalDataRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -15,7 +23,7 @@ class PersonalDataRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Obtiene las reglas de validación que se aplican a la solicitud.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
@@ -33,7 +41,9 @@ class PersonalDataRequest extends FormRequest
     }
 
     /**
-     * Get custom messages for validator errors.
+     * Obtiene mensajes personalizados para errores de validación.
+     *
+     * @return array<string, string>
      */
     public function messages(): array
     {

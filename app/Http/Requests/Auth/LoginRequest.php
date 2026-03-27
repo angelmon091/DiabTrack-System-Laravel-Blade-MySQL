@@ -10,10 +10,18 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * Clase LoginRequest
+ * 
+ * Reglas de validación para el inicio de sesión.
+ * Asegura que las credenciales del usuario sean válidas antes de ser procesadas.
+ */
 class LoginRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -21,7 +29,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Obtiene las reglas de validación que se aplican a la solicitud.
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
@@ -34,7 +42,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Attempt to authenticate the request's credentials.
+     * Intenta autenticar las credenciales de la solicitud.
      *
      * @throws ValidationException
      */
@@ -54,7 +62,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Ensure the login request is not rate limited.
+     * Asegura que la solicitud de inicio de sesión no esté sujeta a limitaciones de velocidad.
      *
      * @throws ValidationException
      */
@@ -77,7 +85,9 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Get the rate limiting throttle key for the request.
+     * Obtiene la clave de limitación de velocidad para la solicitud.
+     *
+     * @return string
      */
     public function throttleKey(): string
     {
