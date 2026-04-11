@@ -81,7 +81,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="admin-main bg-white m-0 m-lg-4 rounded-4 shadow-sm border">
+        <main class="admin-main">
             
             <!-- Global Alerts -->
             @if(session('success'))

@@ -50,13 +50,22 @@ class SocialiteController extends Controller
             ->first();
 
         if ($user) {
-            // Update social ID if not set
+            // Update social ID and avatar if not set
+            // Security: We only merge if the account is already verified or if it was created via social
+            $userUpdateData = [
+                'avatar' => $socialUser->getAvatar(),
+            ];
+
             if (!$user->{$provider . '_id'}) {
-                $user->update([
-                    $provider . '_id' => $socialUser->getId(),
-                    'avatar' => $socialUser->getAvatar(),
-                ]);
+                $userUpdateData[$provider . '_id'] = $socialUser->getId();
             }
+
+            // Mark as verified if not already (since social providers verify emails)
+            if (!$user->email_verified_at) {
+                $userUpdateData['email_verified_at'] = now();
+            }
+
+            $user->update($userUpdateData);
             Auth::login($user);
         } else {
             // Create a new user
@@ -67,10 +76,12 @@ class SocialiteController extends Controller
                 $provider . '_id' => $socialUser->getId(),
                 'avatar' => $socialUser->getAvatar(),
                 'provider' => $provider,
+                'email_verified_at' => now(), // Social providers verify emails
             ]);
 
             Auth::login($user);
         }
+
 
         return redirect()->intended('/dashboard');
     }

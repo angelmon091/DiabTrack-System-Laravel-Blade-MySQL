@@ -7,19 +7,23 @@
 .admin-wrapper {
     display: flex;
     flex: 1;
-    background-color: var(--diab-bg);
+    background: linear-gradient(135deg, #f5f5f5 0%, #e2e8f0 100%);
+    min-height: calc(100vh - 72px);
 }
 
 .admin-sidebar {
     width: 280px;
-    background: var(--diab-white);
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
     padding: 2rem 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     position: sticky;
-    top: 72px; /* Navbar height */
+    top: 72px;
+    /* Navbar height */
     height: calc(100vh - 72px);
     transition: var(--diab-transition);
 }
@@ -28,8 +32,14 @@
     flex: 1;
     padding: 2rem 3rem;
     max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
+    margin: 2rem auto !important;
+    width: calc(100% - 4rem);
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--diab-radius) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
 }
 
 /* Sidebar Navigation */
@@ -71,13 +81,16 @@
 
 /* Admin Cards & Components */
 .admin-card {
-    background: var(--diab-white);
-    border-radius: var(--diab-radius);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: var(--diab-shadow);
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: var(--diab-radius) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
     padding: 2.5rem;
     transition: var(--diab-transition);
 }
+
 
 /* Data Tables */
 .custom-table {
@@ -143,7 +156,7 @@
     .admin-wrapper {
         flex-direction: column;
     }
-    
+
     .admin-sidebar {
         width: 100%;
         height: auto;
@@ -155,12 +168,12 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         gap: 1rem;
     }
-    
+
     .admin-nav-item {
         padding: 0.625rem 1rem;
         white-space: nowrap;
     }
-    
+
     .admin-main {
         padding: 1.5rem;
     }

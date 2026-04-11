@@ -1,11 +1,11 @@
-<section class="glass-card p-4 p-md-5 mb-5">
+<section>
     <header class="mb-4">
         <h3 class="fw-bold text-dark fs-5">
-            {{ __('Información del Perfil') }}
+            <i class="fa-solid fa-id-card me-2 text-diab-primary"></i> {{ __('Información del Perfil') }}
         </h3>
 
         <p class="mt-1 small text-muted">
-            {{ __("Actualiza los datos básicos de tu cuenta y dirección de correo electrónico.") }}
+            {{ __("Actualiza los datos básicos de tu cuenta y tu dirección de correo electrónico.") }}
         </p>
     </header>
 
@@ -19,7 +19,7 @@
 
         <div class="mb-4">
             <label class="form-label small fw-bold text-muted text-uppercase" for="name">{{ __('Nombre completo') }}</label>
-            <input id="name" name="name" type="text" class="form-control glass-input" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name" />
+            <input id="name" name="name" type="text" class="form-control diab-input" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name" />
             @if($errors->has('name'))
                 <span class="text-danger extra-small">{{ $errors->first('name') }}</span>
             @endif
@@ -27,7 +27,7 @@
 
         <div class="mb-4">
             <label class="form-label small fw-bold text-muted text-uppercase" for="email">{{ __('Correo Electrónico') }}</label>
-            <input id="email" name="email" type="email" class="form-control glass-input" value="{{ old('email', $user->email) }}" required autocomplete="username" />
+            <input id="email" name="email" type="email" class="form-control diab-input" value="{{ old('email', $user->email) }}" required autocomplete="username" />
             @if($errors->has('email'))
                 <span class="text-danger extra-small">{{ $errors->first('email') }}</span>
             @endif
@@ -51,13 +51,14 @@
         </div>
 
         <div class="d-flex align-items-center gap-4 mt-4">
-            <button type="submit" class="btn-save shadow-sm">{{ __('Guardar Cambios') }}</button>
+            <button type="submit" class="btn-diab-primary shadow-sm">{{ __('Guardar Cambios') }}</button>
 
             @if (session('status') === 'profile-updated')
                 <div x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" class="small text-success fw-semibold animate-fade-in">
-                    <i class="fa-solid fa-circle-check me-1"></i> {{ __('Actualizado con éxito.') }}
+                    <i class="fa-solid fa-circle-check me-1"></i> {{ __('Perfil actualizado con éxito.') }}
                 </div>
             @endif
         </div>
     </form>
 </section>
+

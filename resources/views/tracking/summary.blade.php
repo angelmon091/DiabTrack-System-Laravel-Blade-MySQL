@@ -11,7 +11,7 @@
             background: rgba(255, 255, 255, 0.4) !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 20px;
+            border-radius: 20px !important;
             overflow: hidden;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
         }
@@ -21,15 +21,13 @@
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.4) !important;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            border-radius: 20px !important;
         }
         .stat-card.border-4 {
             border-width: 1px !important;
             border-left-width: 6px !important;
         }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-        }
+
         .info-icon {
             cursor: help;
             font-size: 0.85rem;
@@ -265,7 +263,7 @@
         <!-- Main Charts Row -->
         <div class="row g-4 mb-5">
             <div class="col-12 col-lg-8">
-                <div class="diab-card p-4 p-md-5 h-100 shadow-sm border-0">
+                <div class="diab-card p-4 p-md-5 h-100">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="fw-bold mb-0">Dinámica de Glucosa (30 días)</h5>
                         <div class="d-flex align-items-center gap-3">
@@ -279,7 +277,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-4">
-                <div class="diab-card p-4 p-md-5 h-100 shadow-sm border-0">
+                <div class="diab-card p-4 p-md-5 h-100">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="fw-bold mb-0">Composición de Dieta</h5>
                         <i class="fa-solid fa-circle-info info-icon opacity-50" data-bs-toggle="tooltip" title="Distribución porcentual de los tipos de alimentos (carbohidratos, proteínas, grasas, etc.) que has consumido."></i>
@@ -300,7 +298,7 @@
         <!-- Secondary Charts Row -->
         <div class="row g-4 mb-5">
             <div class="col-12 col-md-6">
-                <div class="diab-card p-4 p-md-5 shadow-sm border-0">
+                <div class="diab-card p-4 p-md-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="fw-bold mb-0">Frecuencia de Síntomas</h5>
                         <i class="fa-solid fa-circle-info info-icon opacity-50" data-bs-toggle="tooltip" title="Recuento de los síntomas más comunes que has reportado recientemente."></i>
@@ -311,7 +309,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="diab-card p-4 p-md-5 shadow-sm border-0">
+                <div class="diab-card p-4 p-md-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="fw-bold mb-0">Balance de Energía y Sueño</h5>
                         <i class="fa-solid fa-circle-info info-icon opacity-50" data-bs-toggle="tooltip" title="Visualización del equilibrio entre tu descanso, actividad física y niveles percibidos de energía."></i>

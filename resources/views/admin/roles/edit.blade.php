@@ -63,7 +63,7 @@
         </div>
     </x-admin-modal>
 
-    <div class="admin-card p-4 mx-auto animate-fade-in" style="max-width: 600px; animation-delay: 0.1s;">
+    <div class="diab-card p-4 mx-auto animate-fade-in" style="max-width: 600px; animation-delay: 0.1s;">
         <form action="{{ route('admin.roles.update', $role) }}" method="POST">
             @csrf
             @method('PUT')

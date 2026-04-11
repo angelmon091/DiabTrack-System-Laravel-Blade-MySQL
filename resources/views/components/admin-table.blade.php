@@ -2,12 +2,12 @@
     'headers' => [],
 ])
 
-<div class="table-responsive bg-white rounded-4 shadow-sm">
+<div class="table-responsive diab-card">
     <table class="table table-hover align-middle mb-0 custom-table">
-        <thead class="bg-light text-muted small fw-semibold text-uppercase">
+        <thead class="text-muted extra-small fw-bold text-uppercase" style="background: rgba(0,0,0,0.02);">
             <tr>
                 @foreach ($headers as $header)
-                    <th scope="col" class="py-3 px-4">{{ $header }}</th>
+                    <th scope="col" class="py-3 px-4 border-bottom-0">{{ $header }}</th>
                 @endforeach
             </tr>
         </thead>
@@ -16,3 +16,4 @@
         </tbody>
     </table>
 </div>
+

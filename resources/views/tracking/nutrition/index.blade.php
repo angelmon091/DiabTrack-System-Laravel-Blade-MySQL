@@ -37,6 +37,7 @@
         .ia-recommendation-card {
             background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
             border-left: 5px solid var(--diab-primary);
+            border-radius: var(--diab-radius);
         }
         .pulse-ia {
             animation: pulse-blue 2s infinite;
@@ -52,7 +53,7 @@
 @section('content')
 <main class="container-fluid py-4 px-md-5">
     
-    <section class="diab-card mb-4 p-4 p-md-5 animate-fade-in shadow-lg">
+    <section class="diab-card mb-4 p-4 p-md-5 animate-fade-in">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
             <div>
                 <h2 class="fw-extrabold mb-1 fs-3">Alimentación <span class="text-diab-primary">Con IA</span></h2>
@@ -81,7 +82,7 @@
                     @endphp
                     @foreach($placeholderFoods as $food)
                         <div class="food-item" style="min-width: calc(33.333% - 1rem);">
-                            <div class="food-card rounded-4 overflow-hidden shadow-sm h-100">
+                            <div class="food-card overflow-hidden shadow-sm h-100" style="border-radius: var(--diab-radius);">
                                 <div class="position-relative h-100">
                                     <img src="{{ $food['img'] }}" alt="{{ $food['name'] }}" class="w-100 h-100 object-fit-cover" style="min-height: 200px;">
                                     <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-white">
@@ -107,19 +108,19 @@
         </div>
 
         <div class="text-center mt-5">
-            <button class="btn btn-primary btn-ia px-5 py-3 rounded-pill fw-bold shadow-lg pulse-ia" data-bs-toggle="modal" data-bs-target="#iaModal">
+            <button class="btn btn-primary btn-ia px-5 py-3 rounded-pill fw-bold pulse-ia" data-bs-toggle="modal" data-bs-target="#iaModal">
                 <i class="fa-solid fa-robot me-2"></i> Generar Recomendación IA
             </button>
         </div>
     </section>
 
-    <section class="stats-section animate-fade-in" style="animation-delay: 0.2s;">
+    <div class="diab-card p-4 mb-4 animate-fade-in">
         <h5 class="fw-bold mb-4 text-diab-text-secondary text-uppercase letter-spacing-1 small">Métricas de Nutrición Hoy</h5>
         
         <div class="row g-4">
             <!-- Calorías -->
             <div class="col-12 col-md-4">
-                <div class="diab-card metric-card p-4 h-100 diab-card-hover border-0">
+                <div class="diab-card metric-card p-4 h-100 diab-card-hover">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div class="act-icon red shadow-sm"><i class="fa-solid fa-fire"></i></div>
                         <span class="badge {{ $porcentajeCalorias > 90 ? 'bg-danger' : 'bg-success' }} rounded-pill">{{ $porcentajeCalorias }}%</span>
@@ -137,7 +138,7 @@
 
             <!-- Carbohidratos -->
             <div class="col-12 col-md-4">
-                <div class="diab-card metric-card p-4 h-100 diab-card-hover border-0">
+                <div class="diab-card metric-card p-4 h-100 diab-card-hover">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div class="act-icon orange shadow-sm"><i class="fa-solid fa-bread-slice"></i></div>
                         <span class="text-muted extra-small fw-bold">META: {{ $metaCarbs }}g</span>
@@ -156,7 +157,7 @@
 
             <!-- Proteínas/Info -->
             <div class="col-12 col-md-4">
-                <div class="diab-card metric-card p-4 h-100 diab-card-hover border-0">
+                <div class="diab-card metric-card p-4 h-100 diab-card-hover">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div class="act-icon blue shadow-sm"><i class="fa-solid fa-circle-info"></i></div>
                     </div>
@@ -189,7 +190,7 @@
                     <p class="text-muted">Procesando tus métricas de hoy...</p>
                 </div>
                 <div id="iaResult" class="d-none">
-                    <div class="ia-recommendation-card p-4 rounded-4 shadow-sm mb-3">
+                    <div class="ia-recommendation-card p-4 shadow-sm mb-3">
                         <h6 class="fw-bold text-diab-primary mb-2">Estado Actual:</h6>
                         <p class="small mb-3">Has consumido <strong>{{ $carbsHoy }}g</strong> de carbohidratos. Tu glucosa se mantiene en <strong>{{ $ultimaMedicion->glucose_level ?? '--' }} mg/dL</strong>.</p>
                         <hr class="opacity-10">

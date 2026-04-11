@@ -1,7 +1,7 @@
 <section>
     <header class="mb-4">
         <h3 class="fw-bold text-dark fs-5">
-            {{ __('Eliminar Cuenta') }}
+            <i class="fa-solid fa-user-slash me-2 text-diab-danger"></i> {{ __('Eliminar Cuenta') }}
         </h3>
 
         <p class="mt-1 small text-muted">
@@ -31,14 +31,14 @@
             </p>
 
             <div class="mb-4">
-                <label for="password" class="form-label small fw-bold text-muted text-uppercase">{{ __('Contraseña') }}</label>
+                <label for="password" class="form-label small fw-bold text-muted text-uppercase">{{ __('Contraseña de Confirmación') }}</label>
 
                 <input
                     id="password"
                     name="password"
                     type="password"
-                    class="form-control"
-                    placeholder="{{ __('Contraseña de confirmación') }}"
+                    class="form-control diab-input"
+                    placeholder="{{ __('Introduce tu contraseña') }}"
                 />
 
                 @if($errors->userDeletion->has('password'))
@@ -47,14 +47,15 @@
             </div>
 
             <div class="d-flex justify-content-end gap-3">
-                <button type="button" class="btn btn-light rounded-pill px-4" x-on:click="$dispatch('close')">
+                <button type="button" class="btn btn-light rounded-pill px-4 fw-semibold" x-on:click="$dispatch('close')">
                     {{ __('Cancelar') }}
                 </button>
 
-                <button type="submit" class="btn btn-danger rounded-pill px-4 shadow-sm">
+                <button type="submit" class="btn btn-danger rounded-pill px-4 shadow-sm fw-semibold">
                     {{ __('Eliminar de Forma Permanente') }}
                 </button>
             </div>
         </form>
     </x-modal>
 </section>
+

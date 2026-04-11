@@ -22,6 +22,7 @@ class VitalSignController extends Controller
             'systolic' => $request->systolic,
             'diastolic' => $request->diastolic,
             'heart_rate' => $request->heart_rate,
+            'weight' => $request->weight,
             'hba1c' => $request->hba1c,
             'measurement_moment' => $request->measurement_moment,
         ]);

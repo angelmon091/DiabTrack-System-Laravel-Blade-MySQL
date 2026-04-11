@@ -20,7 +20,7 @@
     {{ $slot }}
 
     <footer class="site-footer">
-        <div class="footer-content"
+        <div class="footer-content">
             <div class="links">
                 <a href="#">{{ __('Políticas de Privacidad') }}</a>
                 <a href="#">{{ __('Términos y Condiciones') }}</a>
@@ -28,9 +28,8 @@
             </div>
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-apple"></i>
-                <i class="fa-brands fa-reddit"></i>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-reddit-alien"></i></a>
             </div>
         </div>
     </footer>

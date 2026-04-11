@@ -50,9 +50,9 @@
 
         <!-- Placeholder Cards -->
         <div class="col-12 col-md-6">
-            <div class="diab-card p-4 animate-fade-in" style="animation-delay: 0.4s; background: #fafafa; border-style: dashed;">
+            <div class="diab-card p-4 animate-fade-in" style="animation-delay: 0.4s; background: rgba(255,255,255,0.4) !important; border-style: dashed !important;">
                 <div class="d-flex align-items-center gap-4">
-                    <div class="bg-white p-3 rounded-4 shadow-sm">
+                    <div class="glass-effect p-3 rounded-4 shadow-sm">
                         <i class="fa-solid fa-lock text-muted fs-4"></i>
                     </div>
                     <div>
@@ -64,9 +64,9 @@
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="diab-card p-4 animate-fade-in" style="animation-delay: 0.5s; background: #fafafa; border-style: dashed;">
+            <div class="diab-card p-4 animate-fade-in" style="animation-delay: 0.5s; background: rgba(255,255,255,0.4) !important; border-style: dashed !important;">
                 <div class="d-flex align-items-center gap-4">
-                    <div class="bg-white p-3 rounded-4 shadow-sm">
+                    <div class="glass-effect p-3 rounded-4 shadow-sm">
                         <i class="fa-solid fa-clipboard-list text-muted fs-4"></i>
                     </div>
                     <div>
@@ -76,6 +76,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
 

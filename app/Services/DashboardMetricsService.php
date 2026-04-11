@@ -124,12 +124,30 @@ class DashboardMetricsService
         ];
         $tipDelDia = $tips[date('z') % count($tips)];
 
+        // 7. Recordatorio Mensual de Peso
+        // Verifica si se ha registrado el peso en los últimos 30 días
+        $ultimoPesoRegistro = VitalSign::where('user_id', $userId)
+            ->whereNotNull('weight')
+            ->latest('created_at')
+            ->first();
+
+        $needsWeightUpdate = true;
+        $ultimoPesoValor = null;
+
+        if ($ultimoPesoRegistro) {
+            $ultimoPesoValor = $ultimoPesoRegistro->weight;
+            // Si el registro tiene menos de 30 días, no necesitamos actualización
+            if ($ultimoPesoRegistro->created_at->diffInDays(Carbon::now()) < 30) {
+                $needsWeightUpdate = false;
+            }
+        }
+
         return compact(
             'ultimaMedicion', 'ultimaHba1c', 'carbsHoy', 'caloriasHoy',
             'metaCalorias', 'metaCarbs', 'actividadMinutos', 'metaActividad',
             'pasosEstimados', 'metaPasos', 'sintomasHoy', 'porcentajeCalorias',
             'porcentajeActividad', 'porcentajePasos', 'tiempoEnRango',
-            'glucosaLabels', 'glucosaData', 'tipDelDia'
+            'glucosaLabels', 'glucosaData', 'tipDelDia', 'needsWeightUpdate', 'ultimoPesoValor'
         );
     }
 }

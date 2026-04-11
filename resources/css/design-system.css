@@ -104,27 +104,30 @@ body {
 }
 
 /* Unified Card System */
-.diab-card {
-    background: rgba(255, 255, 255, 0.8);
+.diab-card,
+.stat-card {
+    background: rgba(255, 255, 255, 0.7) !important;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: var(--diab-radius);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
     transition: var(--diab-transition);
     overflow: hidden;
 }
 
+
+.diab-card {
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
 .stat-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: var(--diab-radius-sm);
-    overflow: hidden;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-    height: 100%;
-    transition: var(--diab-transition);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+.stat-card {
+    border-radius: var(--diab-radius);
+    /* Ensure consistent 24px */
 }
 
 .stat-card.border-4 {
@@ -133,11 +136,13 @@ body {
 }
 
 .stat-card:hover,
+.diab-card:hover,
 .diab-card-hover:hover {
     transform: translateY(-5px);
     box-shadow: var(--diab-shadow-hover);
-    border-color: var(--diab-primary-light);
+    border-color: rgba(255, 255, 255, 0.6) !important;
 }
+
 
 /* Logo System */
 .diab-logo {
@@ -174,16 +179,20 @@ body {
 /* Dashboard Metrics & Admin Cards */
 .admin-card-metrics {
     padding: 3rem 2rem !important;
-    border-radius: 28px !important;
+    border-radius: var(--diab-radius) !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    transition: var(--diab-transition);
 }
+
 
 .admin-card-icon-wrapper {
     width: 70px;
@@ -282,4 +291,45 @@ body {
 
 .animate-fade-in {
     animation: fadeIn 0.5s ease forwards;
+}
+
+/* Modal System */
+.modal-content {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: var(--diab-radius) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 1.5rem 2rem !important;
+}
+
+
+
+
+/* Layout Utilities para el Footer */
+.main-content-push {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-body {
+    flex: 1;
+    min-height: 100vh;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 1.5rem 2rem !important;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 1.5rem 2rem !important;
 }

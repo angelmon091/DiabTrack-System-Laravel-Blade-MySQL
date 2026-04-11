@@ -7,7 +7,7 @@
         <div class="row g-4">
 
             <aside class="col-12 col-xl-3">
-                <div class="diab-card p-4 mb-4 shadow-sm animate-fade-in">
+                <div class="diab-card p-4 mb-4 animate-fade-in">
                     <div class="tool-header mb-4 d-flex align-items-center text-diab-primary">
                         <!--<i class="fa-solid fa-gear me-2"></i>-->
                         <span class="fw-bold">Gestión DiabTrack</span>
@@ -74,7 +74,7 @@
             <section class="col-12 col-xl-9">
                 <div class="d-flex justify-content-between align-items-center mb-4 animate-fade-in">
                     <h3 class="fw-bold mb-0 fs-4">Resumen de Datos <span class="text-diab-primary">Total</span></h3>
-                    <div class="text-muted small d-none d-sm-block bg-white px-3 py-1 rounded-pill border">
+                    <div class="text-muted small d-none d-sm-block glass-effect px-3 py-1 rounded-pill border">
                         {{ date('d M, Y') }}</div>
                 </div>
 
@@ -83,6 +83,50 @@
                         <i class="fa-solid fa-circle-check me-2"></i>{{ session('status') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
+                @endif
+
+                {{-- Tarjeta de Recordatorio Mensual de Peso --}}
+                @if($needsWeightUpdate)
+                <div class="diab-card p-4 mb-4 animate-fade-in" style="border-left: 5px solid var(--diab-primary); animation-delay: 0.15s;">
+                    <form action="{{ route('dashboard.weight.store') }}" method="POST">
+                        @csrf
+                        <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-3">
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <div class="act-icon me-3" style="background: var(--diab-primary-light); color: var(--diab-primary); flex-shrink: 0;">
+                                    <i class="fa-solid fa-weight-scale"></i>
+                                </div>
+                                <div>
+                                    <strong class="d-block text-dark">Actualización Mensual de Peso</strong>
+                                    <p class="text-muted extra-small mb-0">
+                                        @if($ultimoPesoValor)
+                                            Último registro: <strong>{{ $ultimoPesoValor }} kg</strong> — Hace más de 30 días
+                                        @else
+                                            Aún no has registrado tu peso este mes
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 flex-shrink-0">
+                                <div class="input-group" style="max-width: 180px;">
+                                    <input type="number" name="weight" step="0.1" min="20" max="350" 
+                                           class="form-control form-control-sm border-0 shadow-sm" 
+                                           placeholder="{{ $ultimoPesoValor ?? 'Peso' }}" 
+                                           required 
+                                           style="background: var(--diab-bg); border-radius: 12px 0 0 12px !important; font-weight: 600;">
+                                    <span class="input-group-text border-0 shadow-sm small fw-bold" 
+                                          style="background: var(--diab-bg); border-radius: 0 12px 12px 0 !important;">kg</span>
+                                </div>
+                                <button type="submit" class="btn btn-sm text-white fw-bold shadow-sm px-3" 
+                                        style="background: linear-gradient(135deg, var(--diab-primary), var(--diab-primary-hover)); border-radius: 12px; white-space: nowrap;">
+                                    <i class="fa-solid fa-check me-1"></i> Guardar
+                                </button>
+                            </div>
+                        </div>
+                        @error('weight')
+                            <p class="text-danger small mt-2 mb-0"><i class="fa-solid fa-circle-exclamation me-1"></i>{{ $message }}</p>
+                        @enderror
+                    </form>
+                </div>
                 @endif
 
                 <div class="row g-4 mb-4">

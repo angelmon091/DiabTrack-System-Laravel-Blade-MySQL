@@ -15,7 +15,8 @@
     </div>
 
     <!-- Buscador -->
-    <div class="admin-card mb-5 p-4 animate-fade-in" style="animation-delay: 0.1s;">
+    <div class="diab-card mb-5 p-4 animate-fade-in" style="animation-delay: 0.1s;">
+
         <form action="{{ route('admin.users.index') }}" method="GET" class="row g-3">
             <div class="col-12 col-md-8">
                 <div class="position-relative">

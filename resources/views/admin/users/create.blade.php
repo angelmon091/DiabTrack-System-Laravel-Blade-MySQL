@@ -13,7 +13,7 @@
         <p class="text-diab-text-secondary mb-0">Completa la información básica y asigna los privilegios correspondientes.</p>
     </div>
 
-    <div class="admin-card p-4 p-md-5 mx-auto animate-fade-in" style="max-width: 900px; animation-delay: 0.1s;">
+    <div class="diab-card p-4 p-md-5 mx-auto animate-fade-in" style="max-width: 900px; animation-delay: 0.1s;">
         <form action="{{ route('admin.users.store') }}" method="POST">
             @csrf
             
@@ -35,7 +35,7 @@
             <div class="mt-2 pt-4 border-top">
                 <h5 class="fw-bold mb-4 text-dark"><i class="fa-solid fa-shield-halved me-2 text-diab-primary"></i>Configuración de Privilegios</h5>
                 
-                <div class="bg-diab-bg rounded-4 p-4 mb-4 border border-white shadow-sm">
+                <div class="diab-card p-4 mb-4 border-white shadow-sm" style="background: rgba(255,255,255,0.4) !important;">
                     <div class="form-check form-switch custom-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="is_admin" name="is_admin" value="1" {{ old('is_admin') ? 'checked' : '' }}>
                         <label class="form-check-label fw-bold ms-2 text-dark" for="is_admin">Acceso Administrativo Completo</label>

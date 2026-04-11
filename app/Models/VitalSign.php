@@ -29,6 +29,7 @@ class VitalSign extends Model
         'systolic',
         'diastolic',
         'heart_rate',
+        'weight',
         'hba1c',
         'measurement_moment',
     ];

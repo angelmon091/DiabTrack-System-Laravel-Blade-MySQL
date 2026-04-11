@@ -225,25 +225,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
     cursor: pointer;
     transition: var(--diab-transition);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--diab-text-secondary);
+    line-height: 1;
 }
 
 .selector-btn img {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
     opacity: 0.7;
+    display: block;
 }
 
 .selector-btn .selector-emoji {
     font-size: 1.4rem;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .selector-btn:hover {

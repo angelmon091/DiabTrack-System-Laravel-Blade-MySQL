@@ -55,6 +55,35 @@ class DashboardController extends Controller
     }
 
     /**
+     * Guarda el peso del usuario desde la tarjeta rápida del Dashboard.
+     * Crea un registro mínimo de VitalSign con solo el peso.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeWeight(Request $request)
+    {
+        $request->validate([
+            'weight' => ['required', 'numeric', 'min:20', 'max:350'],
+        ]);
+
+        \App\Models\VitalSign::create([
+            'user_id' => auth()->id(),
+            'weight' => $request->weight,
+            'glucose_level' => null,
+            'measurement_moment' => 'Ayunas',
+        ]);
+
+        // Actualizar también el perfil del paciente
+        $profile = auth()->user()->patientProfile;
+        if ($profile) {
+            $profile->update(['weight' => $request->weight]);
+        }
+
+        return redirect()->route('dashboard')->with('status', __('Peso registrado correctamente.'));
+    }
+
+    /**
      * Muestra una previsualización detallada de todos los datos y métricas (Vista Resumen).
      *
      * @return \Illuminate\View\View

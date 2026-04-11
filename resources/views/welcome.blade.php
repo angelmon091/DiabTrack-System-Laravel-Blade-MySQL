@@ -62,13 +62,16 @@
                         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-md-start">
                             <a href="{{ route('register') }}" class="btn btn-acceder rounded-pill fw-bold shadow-lg">Comenzar ahora</a>
                             <a href="#" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold border-2">Saber más</a>
-                        </div>
-                    </div>
                 </div>
             </div>
+
+            <!-- Scroll Indicator -->
+            <a href="#features" class="scroll-indicator">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
         </section>
 
-        <section class="features">
+        <section class="features" id="features">
             <div class="container">
                 <div class="text-center mb-5 pb-3">
                     <h2 class="display-5 features-title mb-4">Gestión Inteligente de la Diabetes</h2>

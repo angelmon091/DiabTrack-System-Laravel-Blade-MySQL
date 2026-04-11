@@ -46,7 +46,7 @@
         </x-admin-modal>
     @endif
 
-    <div class="admin-card p-4 p-md-5 mx-auto animate-fade-in" style="max-width: 900px; animation-delay: 0.1s;">
+    <div class="diab-card p-4 p-md-5 mx-auto animate-fade-in" style="max-width: 900px; animation-delay: 0.1s;">
         <form action="{{ route('admin.users.update', $user) }}" method="POST">
             @csrf
             @method('PUT')
@@ -79,7 +79,7 @@
             <div class="mt-2 pt-4 border-top">
                 <h5 class="fw-bold mb-4 text-dark"><i class="fa-solid fa-shield-halved me-2 text-diab-primary"></i>Gestión de Privilegios</h5>
                 
-                <div class="bg-diab-bg rounded-4 p-4 mb-4 border border-white shadow-sm">
+                <div class="diab-card p-4 mb-4 border-white shadow-sm" style="background: rgba(255,255,255,0.4) !important;">
                     <div class="form-check form-switch custom-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="is_admin" name="is_admin" value="1" 
                                {{ old('is_admin', $user->is_admin) ? 'checked' : '' }}
