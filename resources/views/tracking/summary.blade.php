@@ -8,7 +8,7 @@
         .stat-card {
             border: 1px solid rgba(255, 255, 255, 0.45);
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.4) !important;
+            background: rgba(255, 255, 255, 0.8) !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: 20px !important;
@@ -16,7 +16,7 @@
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
         }
         .diab-card {
-            background: rgba(255, 255, 255, 0.35) !important;
+            background: rgba(255, 255, 255, 0.75) !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.4) !important;
@@ -452,9 +452,15 @@
                                         <td class="text-capitalize d-none d-md-table-cell small">{{ $act->intensity }}</td>
                                         <td>
                                             @php
-                                                $energyIcons = ['muy_baja' => '😴', 'baja' => '😐', 'normal' => '🙂', 'alta' => '😊', 'muy_alta' => '🤩'];
+                                                $energyIcons = [
+                                                    'muy_baja' => '<i class="fa-solid fa-battery-empty text-danger"></i>',
+                                                    'baja' => '<i class="fa-solid fa-battery-quarter text-warning"></i>',
+                                                    'normal' => '<i class="fa-solid fa-battery-half text-info"></i>',
+                                                    'alta' => '<i class="fa-solid fa-battery-three-quarters text-success"></i>',
+                                                    'muy_alta' => '<i class="fa-solid fa-battery-full text-success"></i>',
+                                                ];
                                             @endphp
-                                            {{ $energyIcons[$act->energy_level] ?? '🙂' }}
+                                            {!! $energyIcons[$act->energy_level] ?? '<i class="fa-solid fa-battery-half text-info"></i>' !!}
                                         </td>
                                     </tr>
                                     @endforeach

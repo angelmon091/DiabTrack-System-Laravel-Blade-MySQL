@@ -66,18 +66,18 @@
                 <div class="selector-grid" id="meal-grid">
                     @php
                         $mealTypes = [
-                            ['id' => 'desayuno', 'label' => 'Desayuno', 'icon' => '🌅'],
-                            ['id' => 'almuerzo', 'label' => 'Almuerzo', 'icon' => '☀️'],
-                            ['id' => 'cena', 'label' => 'Cena', 'icon' => '🌙'],
-                            ['id' => 'snack', 'label' => 'Snack', 'icon' => '🍎'],
-                            ['id' => 'correccion', 'label' => 'Corrección', 'icon' => '💊'],
+                            ['id' => 'desayuno', 'label' => 'Desayuno', 'icon' => 'fa-solid fa-sun'],
+                            ['id' => 'almuerzo', 'label' => 'Almuerzo', 'icon' => 'fa-solid fa-cloud-sun'],
+                            ['id' => 'cena', 'label' => 'Cena', 'icon' => 'fa-solid fa-moon'],
+                            ['id' => 'snack', 'label' => 'Snack', 'icon' => 'fa-solid fa-apple-whole'],
+                            ['id' => 'correccion', 'label' => 'Corrección', 'icon' => 'fa-solid fa-pills'],
                         ];
                     @endphp
                     @foreach($mealTypes as $meal)
                         <button type="button" 
                                 class="selector-btn {{ old('meal_type', 'desayuno') == $meal['id'] ? 'active' : '' }}" 
                                 onclick="setMealType('{{ $meal['id'] }}', this)">
-                            <span class="selector-emoji">{{ $meal['icon'] }}</span>
+                            <span class="selector-emoji"><i class="{{ $meal['icon'] }}"></i></span>
                             <span>{{ __($meal['label']) }}</span>
                         </button>
                     @endforeach

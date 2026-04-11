@@ -56,18 +56,18 @@
                     <div class="selector-grid" id="energy-grid">
                         @php
                             $energyLevels = [
-                                ['id' => 'muy_baja', 'label' => 'Muy Baja', 'icon' => '😴'],
-                                ['id' => 'baja', 'label' => 'Baja', 'icon' => '😐'],
-                                ['id' => 'normal', 'label' => 'Normal', 'icon' => '🙂'],
-                                ['id' => 'alta', 'label' => 'Alta', 'icon' => '😊'],
-                                ['id' => 'muy_alta', 'label' => 'Muy Alta', 'icon' => '🤩'],
+                                ['id' => 'muy_baja', 'label' => 'Muy Baja', 'icon' => 'fa-solid fa-battery-empty'],
+                                ['id' => 'baja', 'label' => 'Baja', 'icon' => 'fa-solid fa-battery-quarter'],
+                                ['id' => 'normal', 'label' => 'Normal', 'icon' => 'fa-solid fa-battery-half'],
+                                ['id' => 'alta', 'label' => 'Alta', 'icon' => 'fa-solid fa-battery-three-quarters'],
+                                ['id' => 'muy_alta', 'label' => 'Muy Alta', 'icon' => 'fa-solid fa-battery-full'],
                             ];
                         @endphp
                         @foreach($energyLevels as $level)
                             <button type="button" 
                                     class="selector-btn {{ old('energy_level', 'normal') == $level['id'] ? 'active' : '' }}" 
                                     onclick="setEnergy('{{ $level['id'] }}', this)">
-                                <span class="selector-emoji">{{ $level['icon'] }}</span>
+                                <span class="selector-emoji"><i class="{{ $level['icon'] }}"></i></span>
                                 <span>{{ __($level['label']) }}</span>
                             </button>
                         @endforeach
@@ -85,16 +85,16 @@
                 <div class="selector-grid" id="intensity-grid">
                     @php
                         $intensities = [
-                            ['id' => 'baja', 'label' => 'Baja', 'icon' => '🟢'],
-                            ['id' => 'media', 'label' => 'Media', 'icon' => '🟡'],
-                            ['id' => 'alta', 'label' => 'Alta', 'icon' => '🔴'],
+                            ['id' => 'baja', 'label' => 'Baja', 'icon' => 'fa-solid fa-gauge-simple text-success'],
+                            ['id' => 'media', 'label' => 'Media', 'icon' => 'fa-solid fa-gauge text-warning'],
+                            ['id' => 'alta', 'label' => 'Alta', 'icon' => 'fa-solid fa-gauge-high text-danger'],
                         ];
                     @endphp
                     @foreach($intensities as $intensity)
                         <button type="button" 
                                 class="selector-btn {{ old('intensity', 'media') == $intensity['id'] ? 'active' : '' }}" 
                                 onclick="setIntensity('{{ $intensity['id'] }}', this)">
-                            <span class="selector-emoji">{{ $intensity['icon'] }}</span>
+                            <span class="selector-emoji"><i class="{{ $intensity['icon'] }}"></i></span>
                             <span>{{ __($intensity['label']) }}</span>
                         </button>
                     @endforeach

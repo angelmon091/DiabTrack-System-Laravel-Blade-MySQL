@@ -22,17 +22,17 @@
             <div class="tracking-symptoms-grid">
                 @php
                     $categoryLabels = [
-                        'physical' => ['label' => 'Síntomas Físicos', 'icon' => '🏥'],
-                        'nocturnal' => ['label' => 'Síntomas Nocturnos', 'icon' => '🌙'],
-                        'neurological' => ['label' => 'Síntomas Neurológicos', 'icon' => '🧠'],
-                        'atypical' => ['label' => 'Síntomas Atípicos', 'icon' => '⚠️'],
+                        'physical' => ['label' => 'Síntomas Físicos', 'icon' => 'fa-solid fa-hospital'],
+                        'nocturnal' => ['label' => 'Síntomas Nocturnos', 'icon' => 'fa-solid fa-moon'],
+                        'neurological' => ['label' => 'Síntomas Neurológicos', 'icon' => 'fa-solid fa-brain'],
+                        'atypical' => ['label' => 'Síntomas Atípicos', 'icon' => 'fa-solid fa-triangle-exclamation'],
                     ];
                 @endphp
 
                 @forelse($symptoms as $category => $categorySymptoms)
                     <div class="symptom-category">
                         <h3>
-                            <span class="cat-icon">{{ $categoryLabels[$category]['icon'] ?? '📋' }}</span>
+                            <span class="cat-icon"><i class="{{ $categoryLabels[$category]['icon'] ?? 'fa-solid fa-clipboard-list' }}"></i></span>
                             {{ __($categoryLabels[$category]['label'] ?? ucfirst($category)) }}
                         </h3>
                         @foreach($categorySymptoms as $symptom)
