@@ -54,16 +54,14 @@
             </div>
 
             <div class="social-buttons">
-                <button type="button" class="btn-social">
+                <a href="{{ route('socialite.redirect', 'facebook') }}" class="btn-social">
                     <i class="fa-brands fa-facebook" style="color: #1877F2;"></i> {{ __('Continuar con Facebook') }}
-                </button>
-                <button type="button" class="btn-social">
+                </a>
+                <a href="{{ route('socialite.redirect', 'google') }}" class="btn-social">
                     <img src="{{ asset('img/medios/logos/google.png') }}" alt="Google"> {{ __('Continuar con Google') }}
-                </button>
-                <button type="button" class="btn-social">
-                    <i class="fa-brands fa-apple"></i> {{ __('Continuar con Apple') }}
-                </button>
+                </a>
             </div>
+
 
             <p class="footer-link">
                 {{ __('¿No tienes una cuenta?') }} 
