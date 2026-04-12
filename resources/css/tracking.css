@@ -476,15 +476,3 @@
         font-size: 0.9rem;
     }
 }
-
-.tracking-actions {
-    gap: 0.75rem;
-}
-
-.btn-track-reset,
-.btn-track-save {
-    max-width: 160px;
-    padding: 12px 0;
-    font-size: 0.9rem;
-}
-}
